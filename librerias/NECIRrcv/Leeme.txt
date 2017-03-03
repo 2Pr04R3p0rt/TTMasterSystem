@@ -1,0 +1,8 @@
+NECIRrcv
+Instalar una librería es tan simple cómo abrir la carpeta en la que esta guardado nuestro sketch y crear - si es que no existe ya- una carpeta a la que deberemos llamar libraries dentro de esta carpeta copiaremos todas aquellas librerías que vayamos a necesitar en nuestro sketch.
+
+Cada librería contenida en la carpeta libraries deberá estar en su propia carpeta y esta contener, cómo mínimo, dos ficheros. Uno con extensión .h y el otro .cpp
+
+Ya esta listo, si reiniciamos el entorno de Arduino aparecerán nuestras librerías en el menú Sketch > Import Library.
+
+G.Ortega
