@@ -1,6 +1,6 @@
 #include <Ultrasonic.h>
 
-bool pressed; //false = alarma apagada, true = alarma vigilante
+bool alarma; //false = alarma apagada, true = alarma vigilante
 
 Ultrasonic ultrasonic(5,6);
 
@@ -13,7 +13,7 @@ void setup()
   digitalWrite(7, LOW);  // GND mode
   pinMode(8, OUTPUT);
   pinMode(1, INPUT); //aqui llegará la entrada del botón para cambiar los modos
-  pressed = false; //por defecto la alarma está apagada
+  alarma = false; //por defecto la alarma está apagada
 }
 
 void loop()
