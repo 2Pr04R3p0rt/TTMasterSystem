@@ -68,9 +68,11 @@ void loop()
       Serial.println();//debug
       if (c=='H'){
         digitalWrite(luz, HIGH);
+        led=true;
       }
       else if (c=='L'){
         digitalWrite(luz, LOW);
+        led=false;
       }
     }
   }
