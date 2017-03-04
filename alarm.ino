@@ -1,22 +1,32 @@
 #include <Ultrasonic.h>
 
-bool presed;
+bool pressed; //false = alarma apagada, true = alarma vigilante
+
 Ultrasonic ultrasonic(5,6);
-void setup() {
-  // put your setup code here, to run once:
+void setup()
+{
   Serial.begin(9600);
   pinMode(4, OUTPUT); // VCC pin
   pinMode(7, OUTPUT); // GND ping
   digitalWrite(4, HIGH); // VCC +5V mode  
   digitalWrite(7, LOW);  // GND mode
   pinMode(8, OUTPUT);
-  presed = false;
+  pinMode(1, INPUT); //aqui llegará la entrada del botón para cambiar los modos
+  pressed = false;
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  if(ultrasonic.Ranging(CM)< 50){
-        digitalWrite(8, HIGH);
+void loop()
+{
+  if (digitalRead(1) == HIGH) //si leemos que ha entrado un boton
+  {
+    alarma = !alarma; //cambiamos el modo alarma
   }
-  else digitalWrite(8, LOW);
+  if (alarma) //tenemos la alarma vigilando la casa, así que cuando el sensor detecte algo sonará la alarma
+  {
+    if(ultrasonic.Ranging(CM) < 50){
+          digitalWrite(8, HIGH);
+    }
+    else digitalWrite(8, LOW);
+  }
+  else digitalWrite(8, LOW); //como el modo es off, dejamos alarma siempre apagada
 }
