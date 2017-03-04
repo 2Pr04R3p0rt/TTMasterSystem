@@ -76,5 +76,12 @@ void loop()
       }
     }
   }
+  if (Serial.available()){
+    char c=Serial.read();
+    if (c=='s'){
+      if (led) return 1;
+      else return 0;
+    }
+  }
   delay(100);
 }
